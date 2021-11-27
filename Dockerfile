@@ -22,6 +22,6 @@ RUN touch /home/steam/.steam && \
     /usr/games/steamcmd +force_install_dir $STEAM_INSTALL_DIR +login anonymous +app_update "$STEAM_APP_ID" validate +quit && \
     echo "STDERR ERRORS: $(cat /home/steam/Steam/logs/stderr.txt)" && \
     rm /home/steam/Steam/logs/stderr.txt
-EXPOSE 27020/tcp
+EXPOSE 27015/tcp
 WORKDIR /home/steam
 ENTRYPOINT ./srcds_run -game garrysmod +maxplayers 12 +map gm_flatgrass +sv_setsteamaccount $STEAM_TOKEN
