@@ -55,24 +55,24 @@ docker-run-shell:: ## runs the docker image locally but with shell
 helm-install:: ## installs using helm from chart in repo
 		@helm install \
 			-f helm-values.prd.yaml \
-			--namespace ark \
+			--namespace default \
 				garrysmod charts/garrysmod
 
 helm-upgrade:: ## upgrades deployed helm release
 		@helm upgrade \
 			-f helm-values.prd.yaml \
-			--namespace ark \
+			--namespace default \
 				garrysmod charts/garrysmod
 
 helm-uninstall:: ## deletes and purges deployed helm release
 		@helm uninstall \
-			--namespace ark \
+			--namespace default \
 				garrysmod
 
 helm-render:: ## prints out the rendered chart
 		@helm install \
 			-f helm-values.prd.yaml \
-			--namespace ark \
+			--namespace default \
 			--dry-run \
 			--debug \
 				garrysmod charts/garrysmod
@@ -80,7 +80,7 @@ helm-render:: ## prints out the rendered chart
 helm-validate:: ## runs a lint on the helm chart
 		@helm lint \
 			-f helm-values.prd.yaml \
-			--namespace ark \
+			--namespace default \
 				charts/garrysmod
 
 # a help target including self-documenting targets (see the awk statement)
